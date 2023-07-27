@@ -1,6 +1,6 @@
 {
   "name": "catalog-server",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Catalog Server",
   "main": "api/index.js",
   "private": true,

@@ -20,6 +20,7 @@ const path = require("path");
 const { spawn } = require("child_process");
 
 function verifyGitTagFormat(gitTag) {
+  //auth-ios@0.0.1
   const gitTagPattern = /^([\w-]+)-(\w+)@([\d.]+)$/;
   const match = gitTag.match(gitTagPattern);
 
@@ -73,7 +74,10 @@ function runShellCommands(commands) {
 }
 
 function buildMiniApp(gitTag) {
+  //auth-ios@0.0.1
   const { packageName, platform } = verifyGitTagFormat(gitTag);
+  //packageName: auth
+  //platform: ios
 
   const scriptName = getScriptName(platform);
 
@@ -85,9 +89,12 @@ function buildMiniApp(gitTag) {
     platform,
     "remotes"
   );
+  //packages/auth/build/outputs/ios/remotes
 
   const commands = [
+      // yarn workspace auth run bundle:ios
     { cmd: "yarn", args: ["workspace", packageName, "run", scriptName] },
+    // mv packages/auth/build/outputs/ios/remotes build
     { cmd: "mv", args: [buildPath, "build"] },
   ];
 
