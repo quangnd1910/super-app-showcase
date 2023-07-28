@@ -31,17 +31,17 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
-      - name: Create code-signing.pem
-        env:
-          CODE_SIGNING_KEY: ${{ secrets.CODE_SIGNING_KEY }}
-        run: echo "$CODE_SIGNING_KEY" > code-signing.pem
+#
+#      - name: Create code-signing.pem
+#        env:
+#          CODE_SIGNING_KEY: ${{ secrets.CODE_SIGNING_KEY }}
+#        run: echo "$CODE_SIGNING_KEY" > code-signing.pem
 
       - name: Build
         run: yarn node scripts/build-miniapp.js ${{ github.ref_name }}
-
-      - name: Delete code-signing.pem
-        run: rm code-signing.pem
+#
+#      - name: Delete code-signing.pem
+#        run: rm code-signing.pem
 
       - name: Release
         uses: ncipollo/release-action@v1

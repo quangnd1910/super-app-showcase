@@ -130,7 +130,6 @@ function getCurrentDependencyVersion(dependency, packages) {
 function updateCompatibilityMatrix() {
   const packages = discoverPackagesWithFederatedDependencies();
   const matrix = getCompatibilityMatrix(packages);
-  console.log(JSON.stringify({packages, matrix}))
   for (const app in packages) {
     const packageData = packages[app];
 

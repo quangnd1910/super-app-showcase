@@ -271,10 +271,10 @@ export default env => {
           },
         },
       }),
-      new Repack.plugins.CodeSigningPlugin({
-        privateKeyPath: path.join('..', '..', 'code-signing.pem'),
-        outputPath: path.join('build', 'outputs', platform, 'remotes'),
-      }),
+      // new Repack.plugins.CodeSigningPlugin({
+      //   privateKeyPath: path.join('..', '..', 'code-signing.pem'),
+      //   outputPath: path.join('build', 'outputs', platform, 'remotes'),
+      // }),
     ],
   };
 };
